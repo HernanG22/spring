@@ -21,7 +21,10 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
-
+    
+    - name: Lint code
+      run: mvn checkstyle:check
+      
     - name: Build with Maven
       run: mvn clean install
 
@@ -37,6 +40,12 @@ jobs:
     - name: Push Docker image
       run: docker push hernangrillo/my-app:${{ github.sha }}
 
-    - name: Deploy to production
-      run: echo "Deploying to production..."
-      # Aquí puedes añadir los pasos para desplegar tu aplicación, por ejemplo, usando kubectl, ssh, etc.
+    - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      run: |
+        curl -X POST \
+        -H "Authorization: Bearer $RENDER_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{"branch":"master"}' \
+        https://api.render.com/v1/services/srv-cqfc01t6l47c73bbost0/deploys
