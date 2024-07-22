@@ -15,7 +15,7 @@ public class hello {
     @ApiResponse(responseCode = "200", description = "Mensaje obtenido con éxito")
     @GetMapping("/hello")
     public String getMessage() {
-        return "Hola, Mundo! wey!";
+        return "Hola, Mundo! yeah!";
     }
 }
 
