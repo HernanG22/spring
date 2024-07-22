@@ -52,4 +52,4 @@ jobs:
         -H "Authorization: Bearer $RENDER_API_KEY" \
         -H "Content-Type: application/json" \
         -d '{"branch":"master"}' \
-        https://api.render.com/v1/services/srv-cqfc01t6l47c73bbost0/deploys
+        https://api.render.com/v1/services/srv-cqfc01t6l47c73bbost0/deploys/dep-cqfdv4jv2p9s73ama8jg
