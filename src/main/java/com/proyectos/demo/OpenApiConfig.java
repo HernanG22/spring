@@ -20,6 +20,7 @@ public class OpenApiConfig implements WebMvcConfigurer {
                 .pathsToMatch("/api/**") // Cambia esto según tu ruta base de la API
                 .build();
     }
+    
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
