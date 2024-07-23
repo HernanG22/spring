@@ -22,7 +22,7 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
      
-     - name: Lint code
+    - name: Lint code
       run: mvn checkstyle:check
       
     - name: Build with Maven
